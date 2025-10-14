@@ -1,0 +1,37 @@
+body {
+    background: grey;
+    position: relative;
+    text-align: center;
+}
+
+div {
+    background-color: rgba(250, 230, 190, 0.5);
+    z-index: 0;
+}
+
+.bg  { 
+    background: grey;
+    padding: 0px;
+    border-radius: 0px;
+    border: 0px;
+    margin: 0px;
+    position: fixed; 
+    inset: 0; 
+    pointer-events: none;     /* overlay */
+    opacity: 0; 
+    transition: opacity 5s ease; 
+    z-index: -3; 
+}
+
+.title {
+    font-family: monospace;
+    width: 80%;
+    padding: 3px;
+    border: black 1px solid;
+    border-radius: 10px;
+    margin: 1px auto;
+}
+
+h1, h2 {
+    margin: 1px;
+}
