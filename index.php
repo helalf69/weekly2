@@ -30,6 +30,10 @@
 
     <img src="inc/weekly_logo.png" class="logo" alt="">
 
+    <div class="footer">
+        *If you don't have a user, you will be asked if you want to register.
+    </div>
+
     <div class="title">
         <h1>Weekly by Hawk</h1>
         <h2>
@@ -46,6 +50,15 @@
 ?>
         </h2>
     </div>
+
+    <div class="userbar" id="userbar">
+        <form action="index.php" method="post" class="login">
+            <input type="text" name="uname" placeholder="Username" size="10" />&nbsp;
+            <input type="password" name="upasswd" placeholder="Password" size="10" />&nbsp;
+            <input type="submit" name="login" value="Log in*" />
+        </form>
+    </div>
+    <script src="inc/userbar.js"></script>
     
 </body>
 </html>

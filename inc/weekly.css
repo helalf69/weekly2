@@ -46,3 +46,30 @@ h1, h2, h3 {
     margin: 1px auto;
 }
 
+.userbar, .footer {
+    width: 90%;
+    padding: 3px;
+    border: black 1px solid;
+    border-radius: 10px;
+    margin: 3px auto;
+    text-align: right;
+}
+
+.footer {
+  position: fixed;      /* stays put when scrolling */
+  bottom: 10px;         /* distance from bottom */
+  right: 10px;          /* distance from right */
+  z-index: 0;          /* put behind other elements */
+  pointer-events: none; /* so it won't block clicks */
+  font-size: 0.7em;
+}
+
+form .login {
+    display: inline;
+}
+
+.login input {
+    margin: 2px;
+    font-size: 0.7em;
+    border-radius: 2px;
+}
