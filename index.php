@@ -6,11 +6,11 @@
         $_SESSION['user']="guest";
     }
     if (isset($_POST['login']) or isset($_POST['reg'])) {
-        $_POST['nick'] = strip_tags($_POST['nick']);
-        $_POST['nick'] = htmlspecialchars($_POST['nick'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-        $_POST['nick'] = preg_replace('/[^a-zA-Z0-9_]/', '', $_POST['nick']);
-        $_POST['passwd'] = strip_tags($_POST['passwd']);
-        $_POST['passwd'] = htmlspecialchars($_POST['passwd'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $_POST['uname'] = strip_tags($_POST['uname']);
+        $_POST['uname'] = htmlspecialchars($_POST['uname'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $_POST['uname'] = preg_replace('/[^a-zA-Z0-9_]/', '', $_POST['uname']);
+        $_POST['upasswd'] = strip_tags($_POST['upasswd']);
+        $_POST['upasswd'] = htmlspecialchars($_POST['upasswd'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 ?>
 <!DOCTYPE html>
@@ -33,6 +33,8 @@
     <div class="footer">
         *If you don't have a user, you will be asked if you want to register.
     </div>
+
+    <?php include("inc/ops.inc.php"); ?>
 
     <div class="title">
         <h1>Weekly by Hawk</h1>

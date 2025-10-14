@@ -64,6 +64,20 @@ h1, h2, h3 {
   font-size: 0.7em;
 }
 
+.ops {
+  position: fixed;      /* stays put when scrolling */
+  bottom: 20px;         /* distance from bottom */
+  left: 10px;          /* distance from right */
+  width: 50%;
+  padding: 3px;
+  border: black 1px solid;
+  border-radius: 10px;
+  margin: 3px auto;
+  z-index: 0;          /* put behind other elements */
+  pointer-events: none; /* so it won't block clicks */
+  font-size: 0.9em;
+}
+
 form .login {
     display: inline;
 }
