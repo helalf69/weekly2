@@ -9,6 +9,20 @@ div {
     z-index: 0;
 }
 
+h1, h2, h3 {
+    margin: 1px;
+}
+
+.logo {
+  position: fixed;      /* stays put when scrolling */
+  bottom: 50px;         /* distance from bottom */
+  right: 10px;          /* distance from right */
+  width: 50%;         /* adjust size */
+  /* opacity: 0.2;          optional, make it watermark-like */
+  z-index: -1;          /* put behind other elements */
+  pointer-events: none; /* so it won't block clicks */
+}
+
 .bg  { 
     background: grey;
     padding: 0px;
@@ -32,6 +46,3 @@ div {
     margin: 1px auto;
 }
 
-h1, h2 {
-    margin: 1px;
-}

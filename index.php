@@ -28,6 +28,8 @@
     <div class="bg" id="bg" aria-hidden="true"></div>
     <script src="inc/fadebg.js"></script>
 
+    <img src="inc/weekly_logo.png" class="logo" alt="">
+
     <div class="title">
         <h1>Weekly by Hawk</h1>
         <h2>
