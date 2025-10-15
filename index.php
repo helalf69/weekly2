@@ -10,6 +10,7 @@
         $_POST['uname'] = preg_replace('/[^a-zA-Z0-9_]/', '', $_POST['uname']);
         $_POST['upasswd'] = strip_tags($_POST['upasswd']);
         $_POST['upasswd'] = htmlspecialchars($_POST['upasswd'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        $_POST['upasswd'] = hash('sha256', $_POST['upasswd']);
     }
     $login = false;
     $reg = false;
