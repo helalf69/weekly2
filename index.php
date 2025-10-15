@@ -1,7 +1,6 @@
 <?php 
-    session_start(); 
-    if (!isset($_SESSION['user'])) $_SESSION['user']="guest";
-    elseif (isset($_POST['logout'])) {
+    session_start(); // ******************************************************************* INIT ****************************************
+    if (isset($_POST['logout']) || !isset($_SESSION['user'])) {
         unset($_SESSION);
         $_SESSION['user']="guest";
     }
@@ -12,6 +11,8 @@
         $_POST['upasswd'] = strip_tags($_POST['upasswd']);
         $_POST['upasswd'] = htmlspecialchars($_POST['upasswd'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
+    $login = false;
+    $reg = false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,18 +29,18 @@
     <div class="bg" id="bg" aria-hidden="true"></div>
     <script src="inc/fadebg.js"></script>
 
+    <script src="inc/userbar.js"></script>
+
     <img src="inc/weekly_logo.png" class="logo" alt="">
 
     <div class="footer">
         *If you don't have a user, you will be asked if you want to register.
     </div>
 
-    <?php include("inc/ops.inc.php"); ?>
-
     <div class="title">
         <h1>Weekly by Hawk</h1>
         <h2>
-<?php
+<?php  // ************************************************************************************ HEADER **************************************
         $month = "<span style='font-size: 125%; font-weight: bolder;'>" . date('F') . "</span> ";
         if (date('d') > 15) {
             $nextMonth = "<span style='font-size: 65%'>" . date("F", strtotime("+1 month")) . "</span> ";
@@ -53,14 +54,15 @@
         </h2>
     </div>
 
-    <div class="userbar" id="userbar">
+    <div class="userbar" id="userbar"> <!-- ***************************************************** USER BAR **************************** -->
         <form action="index.php" method="post" class="login">
             <input type="text" name="uname" placeholder="Username" size="10" />&nbsp;
             <input type="password" name="upasswd" placeholder="Password" size="10" />&nbsp;
             <input type="submit" name="login" value="Log in*" />
         </form>
     </div>
-    <script src="inc/userbar.js"></script>
-    
+
+    <?php include("inc/ops.inc.php"); ?>  <!-- **************************************************  ADMIN **************************** -->
+  
 </body>
 </html>
