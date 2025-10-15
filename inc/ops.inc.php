@@ -8,13 +8,13 @@
             echo "Connection failed, contact admin";
         } 
         echo ("<br />\n");
-//        $sql = "DROP TABLE User;";
-//        $ref = $db->query($sql);
+        //$sql = "DROP TABLE User;";
+        //$ref = $db->query($sql);
 
         if (isset($_POST['login'])) {
             $login = true;
             var_dump($_POST);
-            $db->exec("CREATE TABLE IF NOT EXISTS User (idUser INT PRIMARY KEY, UserName TEXT, UserPW TEXT)");
+            $db->exec("CREATE TABLE IF NOT EXISTS User (idUser INTEGER PRIMARY KEY AUTOINCREMENT, UserName TEXT, UserPW TEXT)");
             if (isset($_POST['login'])) {
                 $sql = "SELECT * FROM User WHERE UserName = '" . $_POST['uname'] . "';";
                 $ref = $db->query($sql);
@@ -45,10 +45,17 @@
             $sql = "INSERT INTO User (UserName, UserPW) VALUES ('" . $_POST['uname'] . "', '" . $_POST['upasswd'] . "');";
             echo ($sql . "<br />\n");
             $ref = $db->query($sql);
+            $_SESSION['user'] = $_POST['uname'];
+            $sql = "SELECT last_insert_rowid();";
+            $ref = $db->query($sql);
+            if ($row = $ref->fetchArray(SQLITE3_ASSOC)) {
+                //var_dump($row);
+                $_SESSION['uid'] = $row['last_insert_rowid()'];
+            }
             echo ("<script>changeUserbar('login', '" . $_POST['uname'] . "')</script>\n");
         }
         else {
-            $sql = "SELECT * FROM User ORDER BY idUser DESC LIMIT 3;";
+            $sql = "SELECT idUser, UserName FROM User ORDER BY idUser DESC LIMIT 3;";
             $ref = $db->query($sql);
             while ($row = $ref->fetchArray(SQLITE3_ASSOC)) {
                 var_dump($row);
