@@ -8,6 +8,9 @@
             echo "Connection failed, contact admin";
         } 
         echo ("<br />\n");
+//        $sql = "DROP TABLE User;";
+//        $ref = $db->query($sql);
+
         if (isset($_POST['login'])) {
             $login = true;
             var_dump($_POST);

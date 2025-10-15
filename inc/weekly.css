@@ -48,7 +48,7 @@ h1, h2, h3 {
 
 .userbar, .footer {
     width: 90%;
-    padding: 3px;
+    padding: 3px 10px;
     border: black 1px solid;
     border-radius: 10px;
     margin: 3px auto;
